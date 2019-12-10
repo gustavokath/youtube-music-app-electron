@@ -1,0 +1,41 @@
+{
+  "name": "youtube-music-app",
+  "version": "0.1.0",
+  "description": "Unofficial YouTube Music App",
+  "main": "index.js",
+  "author": "Gustavo Kath",
+  "license": "MIT",
+  "private": false,
+  "build": {
+    "appId": "com.gustavokath.youtube-music-non-official",
+    "productName": "YouTube Music App Unofficial",
+    "mac": {
+      "icon": "./public/icons/mac/512.icns",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "./public/icons/png/512.png"
+    },
+    "files": [
+      "./build/**/*",
+      "./node_modules/**/*",
+      "./public/**/*",
+      "*.js",
+      "*.css"
+    ],
+    "directories": {
+      "buildResources": "public"
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.1",
+    "electron": "^7.1.4",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.1.1",
+    "wait-on": "^3.3.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist:mac": "electron-builder --mac dmg"
+  }
+}
