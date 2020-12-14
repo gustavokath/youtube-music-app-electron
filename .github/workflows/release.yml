@@ -1,0 +1,26 @@
+# NPM Publish is the name for this action
+name: Release
+
+# This action will trigger on every release get created
+on:
+  release:
+    types: [created]
+
+# Job will run on a ubuntu instance
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - uses: actions/checkout@v2
+      # Setup node with version 12.x and NPM registry url
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: yarn install
+      - run: yarn build:mac
+      - name: Upload MacOS Package
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: dist/YouTube Music App Unofficial-*.dmg application/dmg

@@ -36,6 +36,6 @@
   },
   "scripts": {
     "start": "electron .",
-    "dist:mac": "electron-builder --mac dmg"
+    "build:mac": "electron-builder --mac dmg"
   }
 }
